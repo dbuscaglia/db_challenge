@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Location App - Uber Code Challenge</title>
+	<link rel="stylesheet" href="css/Locations.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=places"></script>
+	<script data-main="js/main" src="js/libs/require/require.js"></script>
+</head>
+<body>
+
+
+  <div id="container">
+    <div id="logo">
+      <img src="https://clients.uber.com/web/img/logo-charcoal.png"/>
+    </div>
+
+    <div id="page">
+      
+       <div class="content">
+               <div class="mapCanvas" id="mapCanvas"> </div>
+       <div class="Locationapp" id="Locationapp">
+  
+
+        <form class="form-horizontal" id="geocoding_form">
+        <fieldset>
+          <legend>Add A Favorite Location</legend>
+          <div class="control-group">
+          <div id="create-Location">
+            <input id="new-Location" placeholder="Address" type="text" />
+            <span class="ui-tooltip-top" style="display:none;">Press Enter to save</span>
+          </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+              <input type="text" class="input-large" id="name">
+            </div>
+          </div>
+
+          <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="geocoding_btn">Save Location</button>
+          </div>
+        </fieldset>
+        </form> 
+
+          <div id="Locations">
+            <ul id="Location-list"></ul>
+          </div>
+
+        <div id="Location-stats"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="footer">
+    
+      <div class="well">
+        <div class="pic" style="float: left; margin-right: 15px; ">
+          <a href="www.facebook.com/daniel.buscaglia">
+            <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.14.160.160/p160x160/1076554_6400797_914970177_n.jpg" width="160" height="160" />
+          </a>
+
+        </div>
+
+         <p>I enjoyed this coding challenge, hopefully you enjoy evaluating my architecture and code.</p>
+
+         <p><a href="README.md">Documentation</a></p>
+         <p><a href="https://github.com/dbuscaglia">Git Hub Project</a></p>
+
+      </div>
+    </div> 
+
+
+
+  </div>
+
+
+
+</body>
+</html>
