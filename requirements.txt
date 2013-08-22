@@ -1,12 +1,1 @@
 Flask==0.10.1
-Jinja2==2.7
-MarkupSafe==0.18
-Werkzeug==0.9.3
-itsdangerous==0.22
-protobuf==2.5.0
-rethinkdb==1.7.0-2
-stevedore==0.10
-virtualenv==1.10
-virtualenv-clone==0.2.4
-virtualenvwrapper==4.1.1
-wsgiref==0.1.2
