@@ -3,7 +3,7 @@ Hi Uber!
 
 <b>I love UBER.</b>  Look up my account (danbuscaglia@gmail.com) and you will see!!!
 
-This is the first flask / backbone app I have ever made.  However, I have enjoyed it immensely and have confidence in the design patterns ised in this code.
+This is the first flask / backbone app I have ever made.  However, I have enjoyed it immensely and have confidence in the design patterns used in this code.
 
 Client:
 -------
@@ -16,7 +16,7 @@ css
 
 The javascript files are broken into a clean MV* framework.  Each favorite location is in a Locations collection.  Each location has a view and a model describing its attributes.  Furthremore, the view has a template describing the particular details of the location instance.
 
-I have taken the time to implement autocomplete to improve the UI.  I have been very busy and made this exercise as simple and quick as possible
+I have taken the time to implement autocomplete to improve the UI.  I have been very busy and made this exercise as simple and quick as possible.
 
 Server:
 -------
@@ -38,8 +38,7 @@ R.js and grunt would help efficiently deploy this to a production environment.  
 
 Scale:
 ======
-RethinkDB has impressive blackbox scaling ability.  however, I would not use this for a production scale environment.  neither would I use mongoDB, as it has issues when its sharding scheme does not work as well as mongo enthusiasts have said.  I have spoken with many engineers at various startups and they have had issues with mongo.  Couchbase (formerly membase) [http://www.couchbase.com/] is a very proven blackbox cache/persistence store - and works extremely well.  It employs the common share-nothing nosql approach, and has scaled extremely well at high update / write intensive environments.  It also has great LRU abilities to "tombstone" inactive records out of the in memory cache - and works extremely well - reducing server costs.
-
+RethinkDB has impressive blackbox scaling ability.  However, I would not use this for a production scale environment.  Neither would I use mongoDB, as it has issues when its sharding scheme does not work as well as mongo enthusiasts have said.  Couchbase (formerly membase) [http://www.couchbase.com/] is a very proven blackbox cache/persistence store - and works extremely well.  It employs the common share-nothing nosql approach, and has scaled extremely well at high update / write intensive environments.  It also has great LRU abilities to "tombstone" inactive records out of the in memory cache - and works extremely well - reducing server costs.
 
 Notes:
 ------
