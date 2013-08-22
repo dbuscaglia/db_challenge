@@ -16,7 +16,7 @@
     </div>
 
     <div id="page">
-      
+        <h3>click on a location to show on map.  double click to edit address</h3>
        <div class="content">
                <div class="mapCanvas" id="mapCanvas"> </div>
        <div class="Locationapp" id="Locationapp">
@@ -24,20 +24,19 @@
 
         <form class="form-horizontal" id="geocoding_form">
         <fieldset>
-          <legend>Add A Favorite Location</legend>
+          
           <div class="control-group">
           <div id="create-Location">
             <input id="new-Location" placeholder="Address" type="text" />
             <span class="ui-tooltip-top" style="display:none;">Press Enter to save</span>
           </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label" for="name">Name</label>
-            <div class="controls">
-              <input type="text" class="input-large" id="name">
-            </div>
+
+          <div id="create-Location">
+              <input type="text" placeholder="Name" class="input-large" id="name">
+              <span class="ui-tooltip-top" style="display:none;">Press Enter to save</span>
           </div>
 
+            </div>
           <div class="form-actions">
               <button type="submit" class="btn btn-primary" id="geocoding_btn">Save Location</button>
           </div>
@@ -47,8 +46,6 @@
           <div id="Locations">
             <ul id="Location-list"></ul>
           </div>
-
-        <div id="Location-stats"></div>
         </div>
       </div>
 

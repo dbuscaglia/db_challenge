@@ -1,11 +1,21 @@
+/**
+ * file: views/location.js
+ * author: dbuscaglia
+ * sponsor: uber code challenge
+ * 
+ * this the view for any given location instance from the locations collection
+ * this view handles the business logic of editing, deleting and passes signals to the mapview.
+ */
+
 define([
+
   'jquery', 
   'underscore', 
   'backbone',
-
   'text!templates/Locations.html',
-    'libs/gmaps'
-  ], function($, _, Backbone, LocationsTemplate){
+  'libs/gmaps'
+
+  ], function($, _, Backbone, LocationsTemplate) {
   var LocationView = Backbone.View.extend({
 
     //... is a list tag.
@@ -22,7 +32,8 @@ define([
       "dblclick div.Location-content" : "edit",
       "click div.Location-content"    : "centerMap",
       "click span.Location-destroy"   : "clear",
-      "keypress .Location-input"      : "updateOnEnter"
+      "keypress .Location-input"      : "updateOnEnter",
+      'blur input': 'close'
     },
 
     // The LocationView listens for changes to its model, re-rendering. Since there's
@@ -49,12 +60,12 @@ define([
 
     centerMap: function() {
       this.googleMap.centerMap(this.getLat(), this.getLng());
+      this.googleMap.addMarker(this.getLat(), this.getLng());
     },
 
 
-
+    /*** accessors block **/
     getLat: function() {
-
       return this.model.get('lat');
     },
 
@@ -78,24 +89,60 @@ define([
       var address = this.model.get('address');
       this.$('.Location-content').text(address);
 
-      this.input = this.$('.Location-input');
-      this.input.bind('blur', this.close);
-      this.input.val(address);
+      this.address = this.$('.Location-input');
+      this.address.bind('blur', this.close);
+      this.address.val(address);
       this.centerMap();
 
     },
 
-
-
     // Switch this view into `"editing"` mode, displaying the input field.
     edit: function() {
       $(this.el).addClass("editing");
-      this.input.focus();
+      var __this = this;
+      $(function(){
+
+        __this.address.geocomplete()
+          .bind("geocode:result", function(event, result){
+            return false;
+          })
+          return false;
+        
+      });
+      this.address.focus();
     },
 
     // Close the `"editing"` mode, saving changes to the Location.
     close: function() {
-      this.model.save({address: this.input.val()});
+      var __this = this;
+
+      GMaps.geocode({
+        address: this.address.val().trim(),
+        callback: function(results, status){
+          // did we get acceptable location data?
+          if(status=='OK'){
+
+            result = results[0].geometry.location;
+            if (result) {
+              __this.model.save({
+              address: __this.address.val().trim(),
+              lat: result.lat(),
+              lng: result.lng()
+            });
+
+            __this.centerMap();
+
+            } else {
+              alert("Could not find geo lookup for that address.  Did not save");
+            }
+          } else {
+            // if not, we should log this and alert the user.
+            console.log("Bad Data from Google" + results);
+            alert("Could not establish lookup with Google, please try again.");
+          }
+        } 
+      });
+
       $(this.el).removeClass("editing");
     },
 
@@ -111,6 +158,7 @@ define([
 
     // Remove the item, destroy the model.
     clear: function() {
+      this.remove();
       this.model.clear();
     }
 

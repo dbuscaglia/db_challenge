@@ -6,7 +6,16 @@
 // attatch it to the desired division in the map template.  It takes a collection of
 // locations and transforms them into "markers" on the map
 
-// aliaces we need for this view
+
+/**
+ * file: views/location.js
+ * author: dbuscaglia
+ * sponsor: uber code challenge
+ * 
+ * this the view for the google map
+ * this view handles the business logic of centering, placing markers and attatching geolocation
+ */
+
 define([
   'jquery',
   'underscore',
@@ -48,35 +57,13 @@ define([
 
       this.map = map;
 
-      
-
-      $(function(){
-        
-
-        
-        $("#new-Location").geocomplete()
+      $("#new-Location").geocomplete()
           .bind("geocode:result", function(event, result){
-            console.log("Dan B :: got geocode results");
             return false;
-          })
-          .bind("geocode:error", function(event, status){
-            console.log("ERROR: " + status);
-          })
-          .bind("geocode:multiple", function(event, results){
-            console.log("Multiple: " + results.length + " results found");
           });
-        
-        $("#find").click(function(){
-          $("#new-Location").trigger("geocode");
-        });
-        
-        $("#examples a").click(function(){
-          $("#new-Location").val($(this).text()).trigger("geocode");
 
-          return false;
-        });
         
-      });
+    
 
 
     }

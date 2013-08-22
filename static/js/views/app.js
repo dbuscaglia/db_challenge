@@ -1,3 +1,12 @@
+/**
+ * file: views/app.js
+ * author: dbuscaglia
+ * sponsor: uber code challenge
+ * 
+ * this is the main application UI view.  It has two children views: map and location.
+ * this view handles the business logic of creation of a new favorite location into the location collection 
+ */
+
 define([
   'jquery',
   'underscore', 
@@ -79,7 +88,6 @@ define([
     // If you hit return in the main input field, create new **Location** model,
     // persisting it to *localStorage*.
     createOnEnter: function(e) {
-      //if (e.keyCode != 13) return;
 
         GMaps.geocode({
             address: $('#new-Location').val().trim(),
@@ -96,6 +104,7 @@ define([
                         };
                       Locations.create(attribs);
                       $('#new-Location').val('');
+                      $('#name').val('');
                 }
               }
             } 
@@ -112,8 +121,12 @@ define([
       var tooltip = this.$(".ui-tooltip-top");
       var val = this.input.val();
       tooltip.fadeOut();
-      if (this.tooltipTimeout) clearTimeout(this.tooltipTimeout);
-      if (val == '' || val == this.input.attr('placeholder')) return;
+      if (this.tooltipTimeout) { 
+        clearTimeout(this.tooltipTimeout);
+      }
+      if (val == '' || val == this.input.attr('placeholder')) {
+        return;
+      } 
       var show = function(){ tooltip.show().fadeIn(); };
       this.tooltipTimeout = _.delay(show, 1000);
     }

@@ -1,4 +1,14 @@
-define(['underscore', 'backbone'], function(_, Backbone) {
+/**
+ * file: models/Location.js
+ * author: dbuscaglia
+ * sponsor: uber code challenge
+ * 
+ * this is the basic model for a "location" instance in a Locations collection.
+ */
+define([
+  'underscore', 
+  'backbone'
+], function(_, Backbone) {
   var LocationModel = Backbone.Model.extend({
 
     // Default attributes for the Location.
@@ -11,8 +21,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 
     // Ensure that each Location created has `content`.
     initialize: function() {
-
-      console.log("Dan B:: test");
       if (!this.get("address")) {
         this.set({"address": this.defaults.address});
       }

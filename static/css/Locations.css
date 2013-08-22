@@ -113,8 +113,8 @@ body {
 	display: block;
 }
 #Location-list .editing input {
-	width: 444px;
-	font-size: 24px;
+	width: 600px;
+	font-size: 12px;
 	font-family: inherit;
 	margin: 0;
 	line-height: 1.6em;

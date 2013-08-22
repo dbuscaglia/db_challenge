@@ -1835,7 +1835,7 @@ legend + .control-group {
 }
 
 .form-horizontal .control-group {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   *zoom: 1;
 }
 
@@ -1853,6 +1853,7 @@ legend + .control-group {
 .form-horizontal .control-label {
   float: left;
   width: 160px;
+  font-size:8px;
   padding-top: 5px;
   text-align: right;
 }
