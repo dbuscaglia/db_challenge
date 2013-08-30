@@ -30,7 +30,7 @@ I have chosen this for a few reasons:
 Testing:
 --------
 If I was going to release this into a production environment, I would test with Jasmine (http://pivotal.github.io/jasmine/) for the client
-and take advantage of flasks built in unit testing.  (http://flask.pocoo.org/docs/testing/)  Please excuse the lack of unit testing here, I have many interviews and this is a time consuming exercise in and of itself.
+and take advantage of flasks built in unit testing.  (http://flask.pocoo.org/docs/testing/) 
 
 Deployment:
 -----------
